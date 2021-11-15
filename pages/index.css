@@ -1,0 +1,89 @@
+/* siteHeader */
+
+.siteHeader {
+  padding: 4px 16px;
+}
+
+.siteHeader>h1 {
+  font-size: 34px;
+}
+
+/* end */
+
+/* calendar */
+
+.calendar {
+  background-color: white;
+  margin: 16px;
+  border-radius: 24px;
+  color: #333;
+}
+
+.calendar-header {
+  text-align: center;
+  padding: 16px 0;
+  font-size: 18px;
+}
+
+.calendar-header>time {}
+
+.calendar-weekdays {
+  display: flex;
+  text-align: center;
+}
+
+.calendar-weekdays>li {
+  width: 14.2857%;
+  line-height: 42px;
+}
+
+.calendar-days {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calendar-days>li {
+  width: 14.2857%;
+  text-align: center;
+  height: 42px;
+  line-height: 42px;
+  border: 1px solid transparent;
+}
+
+.calendar-days-today {
+  background-color: pink;
+  border-radius: 10px;
+}
+
+.calendar-days>li.calendar-days-selected {
+  border: 1px solid pink;
+  border-radius: 10px;
+}
+
+.calendar-days-disabled {
+  color: #999;
+}
+
+.calendar-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.calendar-actions button {
+  font-size: 12px;
+  height: 24px;
+  padding: 0 8px;
+}
+
+.calendar-actions-left {}
+
+.calendar-actions-left>button {}
+
+.calendar-actions-right {
+  display: flex;
+}
+
+.calendar-actions-right>button {}
+
+/* end */
