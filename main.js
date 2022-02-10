@@ -56,17 +56,36 @@ function render(time) {
 
         const now = new Date()
         let selectedLi = null
+
         for (let i = 1; i <= 这个月多少天; i++) {
             const li = document.createElement('li')
-            li.textContent = i
-            console.log(i)
-            if (i === now.getDate() && month === now.getMonth() + 1 && year === now.getFullYear()) {
-                li.classList.add("calendar-days-today")
+            const key = `${year}-${month}-${i}`
+            const events = window.data[key]
+            if (events) {
+                li.classList.add('calendar-days-hasEvents')
             }
+            li.textContent = i
             li.onclick = () => {
                 if (selectedLi) { selectedLi.classList.remove('calendar-days-selected') }
                 li.classList.add("calendar-days-selected")
                 selectedLi = li
+                if (events) {
+                    const fragment = document.createDocumentFragment()
+                    events.map(event => {
+                        const div = document.createElement('div')
+                        div.classList.add('events-item')
+                        div.textContent = event
+                        fragment.append(div)
+                    })
+                    g('#events').innerHTML = ""
+                    g('#events').append(fragment)
+                } else {
+                    g('#events').innerHTML = "<div>没有日程</div>"
+                }
+            }
+            if (i === now.getDate() && month === now.getMonth() + 1 && year === now.getFullYear()) {
+                li.classList.add("calendar-days-today")
+                li.click()
             }
             days.append(li)
             n += 1
