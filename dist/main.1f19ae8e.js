@@ -128,7 +128,7 @@ g('#prevMonth').onclick = function () {
 
 g('#nextMonth').onclick = function () {
   var 下月初 = new Date(currentTime.getFullYear(), currentTime.getMonth() + 1, 1);
-  render(new Date(currentTime - 0 + 86400 * 1000 * 30));
+  render(new Date(下月初 - 0));
 };
 
 g('#today').onclick = function () {
@@ -160,6 +160,12 @@ function render(time) {
     //days
     var 月初 = new Date(year, month - 1, 1);
     var 月初星期几 = 月初.getDay();
+
+    if (月初星期几 === 0) {
+      月初星期几 = 7;
+    }
+
+    console.log(月初星期几);
     var 月末 = new Date(new Date(year, month - 1 + 1, 1) - 86400 * 1000);
     var 月末几号 = 月末.getDate();
     var 这个月多少天 = 月末几号;
